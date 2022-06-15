@@ -28,16 +28,16 @@ If you want to draw a plasmid like the one shown in the figure, you can write a 
 
 ```json
 [
-  {"id":"tag","angle":"45","label":"EGFP","color":"green"},
-  {"id":"space","angle":"30"},
-  {"id":"tag","angle":"60","label":"RFP","color":"red"},
-  {"id":"tag","angle":"60","label":"BFP","color":"#1E90FF"}
+  {"type":"tag","angle":"45","label":"EGFP","color":"green"},
+  {"type":"space","angle":"30"},
+  {"type":"tag","angle":"60","label":"RFP","color":"red"},
+  {"type":"tag","angle":"60","label":"BFP","color":"#1E90FF"}
 ]
 ```
 
-`id`  
-If the value of `id` is "tag", a annular sector is drawn; if it is "space", nothing is drawn and a space is opened at the angle specified by `angle`.  
-If `space` is not described between `tag` as shown between RFP and BFP in the example of json, `{"id":"space","angle":"5"}` is automatically inserted. If you do not want gaps between the annular sectors, write `{"id": "space", "angle": "0"}`.  
+`type`  
+If the value of `type` is "tag", a annular sector is drawn; if it is "space", nothing is drawn and a space is opened at the angle specified by `angle`.  
+If `space` is not described between `tag` as shown between RFP and BFP in the example of json, `{"type":"space","angle":"5"}` is automatically inserted. If you do not want gaps between the annular sectors, write `{"type": "space", "angle": "0"}`.  
 
 `angle`  
 Central angle of an annular sector or a gap. Specify the value using the degree method, NOT the radian method.

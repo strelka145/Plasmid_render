@@ -21,7 +21,7 @@ if __name__ == '__main__':
     flag_before_item_is_tag=False
     for gene_item in gene_list:
 
-        if gene_item["id"]=="tag":
+        if gene_item["type"]=="tag":
             if flag_before_item_is_tag:
                 angle+=5
             svg_text+=svg_draw.annular_sector(angle,gene_item["angle"],gene_item["color"],gene_item["label"],id)
