@@ -15,7 +15,7 @@ if __name__ == '__main__':
     else:
         gene_list=json_load(str(args.input_file))
 
-    svg_text='<svg width="300" height="300" viewBox="0, 0, 300, 300" xmlns="http://www.w3.org/2000/svg"><circle cx="150" cy="150" r="90" fill="#000000" fill-opacity="0" stroke="black" stroke-width="2.5" id="circle1"/><!-- This image was created using plasmid render. -->'
+    svg_text='<svg width="300" height="300" viewBox="0, 0, 300, 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="150" cy="150" r="90" fill="#000000" fill-opacity="0" stroke="black" stroke-width="2.5" id="circle1"/><!-- This image was created using plasmid render. -->'
     angle=0.0
     id=0
     flag_before_item_is_tag=False
