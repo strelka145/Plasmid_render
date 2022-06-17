@@ -7,15 +7,16 @@ def json_load(json_path):
         d = json.load(f)
     return d
 
+args = option.get_option()
 if __name__ == '__main__':
 
-    args = option.get_option()
     if args.input_file==None:
         gene_list=json.loads(args.input_json)
     else:
         gene_list=json_load(str(args.input_file))
 
-    svg_text='<svg width="300" height="300" viewBox="0, 0, 300, 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="150" cy="150" r="90" fill="#000000" fill-opacity="0" stroke="black" stroke-width="2.5" id="circle1"/><!-- This image was created using plasmid render. -->'
+    size=args.radius+(args.tag_height/2)+args.margin
+    svg_text='<svg width="'+str(size*2)+'" height="'+str(size*2)+'" viewBox="0, 0, '+str(size*2)+', '+str(size*2)+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="'+str(size)+'" cy="'+str(size)+'" r="'+str(args.radius)+'" fill="none" fill-opacity="0" stroke="black" stroke-width="'+str(args.plasmid_width)+'" id="circle1"/><!-- This image was created using plasmid render. -->'
     angle=0.0
     id=0
     flag_before_item_is_tag=False
@@ -35,5 +36,5 @@ if __name__ == '__main__':
 
     svg_text+='</svg>'
 
-    with open(args.output_json, mode='w',encoding="utf_8") as f:
+    with open(args.output_file, mode='w',encoding="utf_8") as f:
         f.write(svg_text)

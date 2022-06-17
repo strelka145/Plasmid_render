@@ -8,7 +8,8 @@ def get_option():
     argparser.add_argument('-o', '--output_file',default="./out.svg",help='Path of output svg file')
 
     argparser.add_argument('-cp','--config_path',help='Configuration file path')
-    argparser.add_argument('--radius',type=float,default=90,\
+    argparser.add_argument('--margin',type=float,default=50,help='Margin size')
+    argparser.add_argument('-r','--radius',type=float,default=90,\
                             help='Plasmid radius, which automatically determines the size of the image.')
     argparser.add_argument('-pw','--plasmid_width',type=float,default=2.5,\
                             help='Width of plasmid line')
@@ -17,6 +18,7 @@ def get_option():
     argparser.add_argument('-tl','--tag_line_width',type=float,default=1,\
                             help='Tag(an annular sector) outline thickness')
     argparser.add_argument('--font',help='Font name')
+    argparser.add_argument('--font_size',type=float,default=16,help='Font size')
 
 
     return argparser.parse_args()
