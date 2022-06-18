@@ -60,22 +60,12 @@ python3 main.py -i (Path of input json file) --output_svg_file (Path of output s
 python3 main.py --input_json (json code) --output_svg_file (Path of output svg file)
 ```
 
-### I want to output in image format!
-If you want to create an image format such as png or outline SVG output, you can use inkscape to do so.
-
-[install inkscape from here](https://inkscape.org/release/)
-
-After adding inkscape to the PATH, enter the following on the command line.
+### Output as png format
 
 ```
-inkscape --without-gui --export-text-to-path --file=(Path of input svg file) --export-plain-svg=(Path of outpput svg file)
+python3 main.py -i (Path of input json file) --output_png_file (Path of output png file)
 ```
 
-or
-
-```
-inkscape --without-gui --export-text-to-path --file=(Path of input svg file) --export-png=(Path of outpput png file)
-```
 
 ### Future
 - To be able to change the text style
