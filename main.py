@@ -36,5 +36,8 @@ if __name__ == '__main__':
 
     svg_text+='</svg>'
 
-    with open(args.output_file, mode='w',encoding="utf_8") as f:
-        f.write(svg_text)
+    if args.output_svg_file!=None:
+        svg.save_SVG(args.output_svg_file,svg_text)
+
+    if args.output_png_file!=None:
+        svg.save_png(args.output_png_file,svg_text)

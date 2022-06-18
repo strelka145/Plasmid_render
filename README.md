@@ -51,13 +51,13 @@ Color of an annular sector.
 ### SVG output from json files
 
 ```
-python3 main.py -i (Path of input json file) -o (Path of output svg file)
+python3 main.py -i (Path of input json file) --output_svg_file (Path of output svg file)
 ```
 
 ### SVG output from json string
 
 ```
-python3 main.py --input_json (json code) -o (Path of output svg file)
+python3 main.py --input_json (json code) --output_svg_file (Path of output svg file)
 ```
 
 ### I want to output in image format!

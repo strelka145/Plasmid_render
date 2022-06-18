@@ -5,7 +5,8 @@ def get_option():
     argparser = ArgumentParser()
     argparser.add_argument('-i', '--input_file',help='Path of input json file')
     argparser.add_argument('--input_json',default="[]",help='Input json text')
-    argparser.add_argument('-o', '--output_file',default="./out.svg",help='Path of output svg file')
+    argparser.add_argument('-os', '--output_svg_file',help='Path of output svg file')
+    argparser.add_argument('-op', '--output_png_file',help='Path of output svg file')
 
     argparser.add_argument('-cp','--config_path',help='Configuration file path')
     argparser.add_argument('--margin',type=float,default=50,help='Margin size')

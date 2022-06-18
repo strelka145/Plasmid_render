@@ -1,5 +1,10 @@
 import math
+from playwright.sync_api import sync_playwright
 import main
+import pathlib
+import os
+import subprocess
+
 
 def annular_sector(angle,central_angle,color,label_text,id):
     max_r=(main.args.radius+(main.args.tag_height/2))
@@ -23,3 +28,18 @@ def annular_sector(angle,central_angle,color,label_text,id):
     svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="central" text-anchor="middle">'
     svg_code+='<textPath startOffset="50%" href="#path'+str(id)+'" >'+label_text+'</textPath></text>'
     return svg_code
+
+def save_png(output_path,svg_code
+    subprocess.check_output('playwright install', shell=True)
+    with open("./temp.svg", mode='w',encoding="utf_8") as f:
+        f.write(svg_code)
+    with sync_playwright() as p:
+        browser = p.firefox.launch()
+        p = pathlib.Path('./temp.svg')
+        page.goto('file:'+str(p.resolve()))
+        page.locator("svg").screenshot(path=output_path)
+        browser.close()
+
+def save_SVG(output_path,svg_code):
+    with open(output_path, mode='w',encoding="utf_8") as f:
+        f.write(svg_code)
