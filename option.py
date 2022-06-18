@@ -29,9 +29,7 @@ def get_option():
 def option_json(json_path):
     with open(json_path,mode="r") as f:
         config_dic = json.load(f)
-        print(config_dic)
     for key in config_dic.keys():
-        print(key)
         if key=="input_file":
             if not("--input_file" in sys.argv) and not("-i" in sys.argv):
                 main.args.input_file=config_dic[key]
@@ -52,7 +50,6 @@ def option_json(json_path):
                 main.args.margin=config_dic[key]
         elif key=="radius":
             if not("--radius" in sys.argv):
-                print(config_dic[key])
                 main.args.radius=config_dic[key]
         elif key=="plasmid_width":
             if not("--plasmid_width" in sys.argv) and not("-pw" in sys.argv):
