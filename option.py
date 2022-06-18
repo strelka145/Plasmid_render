@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-
+import main
 
 def get_option():
     argparser = ArgumentParser()
@@ -23,3 +23,44 @@ def get_option():
 
 
     return argparser.parse_args()
+
+def option_json(json_path):
+    with open(json_path,mode="r") as f:
+        config_dic = json.load(f)
+    for key in config_dic.keys():
+        if key=="input_file":
+            if not("--input_file" in sys.argv) and not("-i" in sys.argv):
+                main.args.input_file=config_dic[key]
+        elif key=="input_json":
+            if not("--input_json" in sys.argv):
+                main.args.input_file=config_dic[key]
+        elif key=="output_svg_file":
+            if not("--output_svg_file" in sys.argv) and not("-os" in sys.argv):
+                main.args.output_svg_file=config_dic[key]
+        elif key=="output_png_file":
+            if not("--output_png_file" in sys.argv) and not("-op" in sys.argv):
+                main.args.output_png_file=config_dic[key]
+        elif key=="config_path":
+            if not("--config_path" in sys.argv) and not("-cp" in sys.argv):
+                main.args.config_path=config_dic[key]
+        elif key=="margin":
+            if not("--margin" in sys.argv):
+                main.args.margin=config_dic[key]
+        elif key=="radius":
+            if not("--radius" in sys.argv):
+                main.args.radius=config_dic[key]
+        elif key=="plasmid_width":
+            if not("--plasmid_width" in sys.argv) and not("-pw" in sys.argv):
+                main.args.plasmid_width=config_dic[key]
+        elif key=="tag_height":
+            if not("--tag_height" in sys.argv) and not("-th" in sys.argv):
+                main.args.tag_height=config_dic[key]
+        elif key=="tag_line_width":
+            if not("--tag_line_width" in sys.argv) and not("-tl" in sys.argv):
+                main.args.tag_line_width=config_dic[key]
+        elif key=="font":
+            if not("--font" in sys.argv):
+                main.args.font=config_dic[key]
+        elif key=="font_size":
+            if not("--font_size" in sys.argv):
+                main.args.font_size=config_dic[key]

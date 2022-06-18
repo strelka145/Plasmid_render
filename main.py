@@ -40,7 +40,10 @@ def drow():
     if args.output_png_file!=None:
         svg_draw.save_png(args.output_png_file,svg_text)
 
+
 args = option.get_option()
+if args.config_path!=None:
+    option.option_json(args.config_path)
 
 if __name__ == '__main__':
     drow()
