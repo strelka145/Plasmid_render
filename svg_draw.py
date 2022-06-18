@@ -30,12 +30,13 @@ def annular_sector(angle,central_angle,color,label_text,id):
     return svg_code
 
 def save_png(output_path,svg_code):
-    subprocess.check_output('playwright install', shell=True)
+    subprocess.call(["playwright" ,"install"], shell=True)
     with open("./temp.svg", mode='w',encoding="utf_8") as f:
         f.write(svg_code)
     with sync_playwright() as p:
         browser = p.firefox.launch()
         p = pathlib.Path('./temp.svg')
+        page = browser.new_page()
         page.goto('file:'+str(p.resolve()))
         page.locator("svg").screenshot(path=output_path)
         browser.close()
