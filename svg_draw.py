@@ -3,8 +3,13 @@ from playwright.sync_api import sync_playwright
 import main
 import pathlib
 import os
+import json
 import subprocess
 
+def head_svg():
+    size=main.args.radius+(main.args.tag_height/2)+main.args.margin
+    svg_text='<svg width="'+str(size*2)+'" height="'+str(size*2)+'" viewBox="0, 0, '+str(size*2)+', '+str(size*2)+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="'+str(size)+'" cy="'+str(size)+'" r="'+str(main.args.radius)+'" fill="none" fill-opacity="0" stroke="black" stroke-width="'+str(main.args.plasmid_width)+'" id="circle1"/><!-- This image was created using plasmid render. -->'
+    return svg_text
 
 def annular_sector(angle,central_angle,color,label_text,id):
     max_r=(main.args.radius+(main.args.tag_height/2))

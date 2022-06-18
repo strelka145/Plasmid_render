@@ -2,19 +2,13 @@ import json
 import svg_draw
 import option
 
-def json_load(json_path):
-    with open(json_path,mode="r") as f:
-        d = json.load(f)
-    return d
-
 def drow():
     if args.input_file==None:
         gene_list=json.loads(args.input_json)
     else:
-        gene_list=json_load(str(args.input_file))
-
-    size=args.radius+(args.tag_height/2)+args.margin
-    svg_text='<svg width="'+str(size*2)+'" height="'+str(size*2)+'" viewBox="0, 0, '+str(size*2)+', '+str(size*2)+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="'+str(size)+'" cy="'+str(size)+'" r="'+str(args.radius)+'" fill="none" fill-opacity="0" stroke="black" stroke-width="'+str(args.plasmid_width)+'" id="circle1"/><!-- This image was created using plasmid render. -->'
+        with open( args.input_file,mode="r") as f:
+            gene_list = json.load(f)
+    svg_text=svg_draw.head_svg()
     angle=0.0
     id=0
     flag_before_item_is_tag=False
