@@ -7,9 +7,7 @@ def json_load(json_path):
         d = json.load(f)
     return d
 
-args = option.get_option()
-if __name__ == '__main__':
-
+def drow():
     if args.input_file==None:
         gene_list=json.loads(args.input_json)
     else:
@@ -41,3 +39,8 @@ if __name__ == '__main__':
 
     if args.output_png_file!=None:
         svg_draw.save_png(args.output_png_file,svg_text)
+
+args = option.get_option()
+
+if __name__ == '__main__':
+    drow()
