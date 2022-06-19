@@ -24,6 +24,12 @@ def get_option():
                             help='Length of a cut line')
     argparser.add_argument('-clt','--cut_line_thickness',type=float,default=2.5,\
                             help='Thickness of a cut line')
+    argparser.add_argument('--arrow_size',type=float,default=10,\
+                            help='Size of an arrow')
+    argparser.add_argument('--arrow_radius',type=float,default=110,\
+                            help='Arrow radius')
+    argparser.add_argument('--arrow_thickness',type=float,default=2,\
+                            help='Arrow line thickness')
     argparser.add_argument('--font',help='Font name')
     argparser.add_argument('--font_size',type=float,default=16,help='Font size')
 

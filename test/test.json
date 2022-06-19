@@ -2,7 +2,9 @@
   {"type":"tag","angle":"45","label":"EGFP","color":"green"},
   {"type":"space","angle":"30"},
   {"type":"line","angle":"45","label":"EGFP","color":"black"},
-  {"type":"space","angle":"30"},
+  {"type":"space","angle":"20"},
+  {"type":"arrow","angle":"-45","label":"EGFP","color":"green"},
+  {"type":"space","angle":"10"},
   {"type":"tag","angle":"60","label":"RFP","color":"red"},
   {"type":"tag","angle":"60","label":"BFP","color":"#1E90FF"}
 ]
