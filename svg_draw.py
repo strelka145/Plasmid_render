@@ -11,7 +11,7 @@ def head_svg():
     svg_text='<svg width="'+str(size*2)+'" height="'+str(size*2)+'" viewBox="0, 0, '+str(size*2)+', '+str(size*2)+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="rotate('+str(main.args.rotation_angle)+','+str(size)+','+str(size)+')"> <circle cx="'+str(size)+'" cy="'+str(size)+'" r="'+str(main.args.radius)+'" fill="none" fill-opacity="0" stroke="black" stroke-width="'+str(main.args.plasmid_width)+'" id="circle1"/><!-- This image was created using plasmid render. -->'
     return svg_text
 
-def annular_sector(angle,central_angle,color,label_text,id):
+def annular_sector(angle,central_angle,color,label_text,id,font_color="black"):
     center=main.args.picture_box/2
 
     angle_add=angle+float(central_angle)
@@ -29,11 +29,11 @@ def annular_sector(angle,central_angle,color,label_text,id):
     else:
         font_style='font-family="'+main.args.font+'"'
 
-    svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="central" text-anchor="middle">'
+    svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="central" text-anchor="middle" stroke="none" fill="'+font_color+'">'
     svg_code+='<textPath startOffset="50%" href="#path'+str(id)+'" >'+label_text+'</textPath></text>'
     return svg_code
 
-def point(angle,color,label_text,id):
+def point(angle,color,label_text,id,font_color="black"):
     center=main.args.picture_box/2
     angle_add=angle
     start_point_x=(main.args.radius+(main.args.cut_line_length/2))*math.sin(math.radians(angle))+center
@@ -50,11 +50,11 @@ def point(angle,color,label_text,id):
         font_style=""
     else:
         font_style='font-family="'+main.args.font+'"'
-    svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="ideographic" text-anchor="middle">'
+    svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="ideographic" text-anchor="middle" stroke="none" fill="'+font_color+'">'
     svg_code+='<textPath startOffset="50%" href="#path'+str(id)+'" >'+label_text+'</textPath></text>'
     return svg_code
 
-def arrow(angle,central_angle,color,label_text,id):
+def arrow(angle,central_angle,color,label_text,id,font_color="black"):
     center=main.args.picture_box/2
     start_point_x=(main.args.arrow_radius)*math.sin(math.radians(angle))+center
     start_point_y=center-(main.args.arrow_radius)*math.cos(math.radians(angle))
@@ -82,7 +82,7 @@ def arrow(angle,central_angle,color,label_text,id):
         font_style=""
     else:
         font_style='font-family="'+main.args.font+'"'
-    svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="ideographic" text-anchor="middle">'
+    svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="ideographic" text-anchor="middle" stroke="none" fill="'+font_color+'">'
     svg_code+='<textPath startOffset="50%" href="#path'+str(id)+'" >'+label_text+'</textPath></text>'
     return svg_code
 

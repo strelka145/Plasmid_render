@@ -11,7 +11,7 @@ def get_option():
     argparser.add_argument('-op', '--output_png_file',help='Path of output svg file')
 
     argparser.add_argument('-cp','--config_path',help='Configuration file path')
-    argparser.add_argument('--picture_box',type=float,default=600,help='Size of output image (length of one side of a square)')
+    argparser.add_argument('--picture_box',type=float,default=500,help='Size of output image (length of one side of a square)')
     argparser.add_argument('-r','--radius',type=float,default=180,\
                             help='Plasmid radius, which automatically determines the size of the image.')
     argparser.add_argument('-pw','--plasmid_width',type=float,default=2.5,\

@@ -13,20 +13,23 @@ def drow():
     id=0
     flag_before_item_is_tag=False
     for gene_item in gene_list:
-
+        if "font_color" in gene_item:
+            font_color=gene_item["font_color"]
+        else:
+            font_color="black"
         if gene_item["type"]=="tag":
             if flag_before_item_is_tag:
                 angle+=5
-            svg_text+=svg_draw.annular_sector(angle,gene_item["angle"],gene_item["color"],gene_item["label"],id)
+            svg_text+=svg_draw.annular_sector(angle,gene_item["angle"],gene_item["color"],gene_item["label"],id,font_color)
             flag_before_item_is_tag=True
             id+=1
             angle+=float(gene_item["angle"])
         elif gene_item["type"]=="line":
-            svg_text+=svg_draw.point(angle,gene_item["color"],gene_item["label"],id)
+            svg_text+=svg_draw.point(angle,gene_item["color"],gene_item["label"],id,font_color)
             id+=1
             flag_before_item_is_tag=False
         elif gene_item["type"]=="arrow":
-            svg_text+=svg_draw.arrow(angle,gene_item["angle"],gene_item["color"],gene_item["label"],id)
+            svg_text+=svg_draw.arrow(angle,gene_item["angle"],gene_item["color"],gene_item["label"],id,font_color)
             id+=1
             flag_before_item_is_tag=False
         else:
