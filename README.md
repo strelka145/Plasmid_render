@@ -28,10 +28,16 @@ If you want to draw a plasmid like the one shown in the figure, you can write a 
 
 ```json
 [
-  {"type":"tag","angle":45,"label":"EGFP","color":"green"},
-  {"type":"space","angle":30},
-  {"type":"tag","angle":60,"label":"RFP","color":"red"},
-  {"type":"tag","angle":60,"label":"BFP","color":"#1E90FF"}
+  {"type":"arrow","angle":"10","label":"primer","color":"black"},
+  {"type":"space","angle":"10"},
+  {"type":"tag","angle":"45","label":"EGFP","color":"green"},
+  {"type":"space","angle":"10"},
+  {"type":"arrow","angle":"-10","label":"primer","color":"black"},
+  {"type":"space","angle":"20"},
+  {"type":"tag","angle":"60","label":"RFP","color":"red"},
+  {"type":"tag","angle":"60","label":"BFP","color":"#1E90FF"},
+  {"type":"space","angle":"30"},
+  {"type":"line","angle":"45","label":"BamHI","color":"black"}
 ]
 ```
 
