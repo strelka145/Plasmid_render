@@ -20,6 +20,10 @@ def get_option():
                             help='Height of tag(an annular sector)')
     argparser.add_argument('-tl','--tag_line_width',type=float,default=1,\
                             help='Tag(an annular sector) outline thickness')
+    argparser.add_argument('-cll','--cut_line_length',type=float,default=20,\
+                            help='Length of a cut line')
+    argparser.add_argument('-clt','--cut_line_thickness',type=float,default=2.5,\
+                            help='Thickness of a cut line')
     argparser.add_argument('--font',help='Font name')
     argparser.add_argument('--font_size',type=float,default=16,help='Font size')
 

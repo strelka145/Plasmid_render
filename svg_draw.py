@@ -34,6 +34,30 @@ def annular_sector(angle,central_angle,color,label_text,id):
     svg_code+='<textPath startOffset="50%" href="#path'+str(id)+'" >'+label_text+'</textPath></text>'
     return svg_code
 
+def point(angle,color,label_text,id):
+    max_r=(main.args.radius+(main.args.tag_height/2))
+    center=max_r+main.args.margin
+    angle_add=angle
+    start_point_x=(main.args.radius+(main.args.cut_line_length/2))*math.sin(math.radians(angle))+center
+    start_point_y=center-(main.args.radius+(main.args.cut_line_length/2))*math.cos(math.radians(angle))
+    end_point_x=(main.args.radius-(main.args.cut_line_length/2))*math.sin(math.radians(angle))+center
+    end_point_y=center-(main.args.radius-(main.args.cut_line_length/2))*math.cos(math.radians(angle))
+    svg_code='<path d="M'+str(start_point_x)+','+str(start_point_y)+' L '+str(end_point_x)+' '+str(end_point_y)+'" stroke-width="'+str(main.args.cut_line_thickness)+'" stroke="'+color+'"/>'
+    start_point_x=(main.args.radius+(main.args.cut_line_length/2))*math.sin(math.radians(angle-80))+center
+    start_point_y=center-(main.args.radius+(main.args.cut_line_length/2))*math.cos(math.radians(angle-80))
+    end_point_x=(main.args.radius+(main.args.cut_line_length/2))*math.sin(math.radians(angle+80))+center
+    end_point_y=center-(main.args.radius+(main.args.cut_line_length/2))*math.cos(math.radians(angle+80))
+    svg_code+='<path d="M'+str(start_point_x)+','+str(start_point_y)+' A '+str((main.args.radius+(main.args.cut_line_length/2)))+' '+str((main.args.radius+(main.args.cut_line_length/2)))+' '+str(angle-90)+' 0 1 '+str(end_point_x)+','+str(end_point_y)+'" fill="none" id="path'+str(id)+'"/>'
+    if main.args.font==None:
+        font_style=""
+    else:
+        font_style='font-family="'+main.args.font+'"'
+    svg_code+='<text font-size="'+str(main.args.font_size)+'" '+font_style+' dominant-baseline="ideographic" text-anchor="middle">'
+    svg_code+='<textPath startOffset="50%" href="#path'+str(id)+'" >'+label_text+'</textPath></text>'
+    return svg_code
+
+
+
 def save_png(output_path,svg_code):
     subprocess.call(["playwright" ,"install"], shell=True)
     with open("./temp.svg", mode='w',encoding="utf_8") as f:

@@ -20,6 +20,9 @@ def drow():
             svg_text+=svg_draw.annular_sector(angle,gene_item["angle"],gene_item["color"],gene_item["label"],id)
             flag_before_item_is_tag=True
             id+=1
+        elif gene_item["type"]=="line":
+            svg_text+=svg_draw.point(angle,gene_item["color"],gene_item["label"],id)
+            id+=1
         else:
             flag_before_item_is_tag=False
 
