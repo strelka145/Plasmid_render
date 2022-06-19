@@ -11,8 +11,8 @@ def get_option():
     argparser.add_argument('-op', '--output_png_file',help='Path of output svg file')
 
     argparser.add_argument('-cp','--config_path',help='Configuration file path')
-    argparser.add_argument('--margin',type=float,default=50,help='Margin size')
-    argparser.add_argument('-r','--radius',type=float,default=90,\
+    argparser.add_argument('--picture_box',type=float,default=600,help='Size of output image (length of one side of a square)')
+    argparser.add_argument('-r','--radius',type=float,default=180,\
                             help='Plasmid radius, which automatically determines the size of the image.')
     argparser.add_argument('-pw','--plasmid_width',type=float,default=2.5,\
                             help='Width of plasmid line')
@@ -26,12 +26,14 @@ def get_option():
                             help='Thickness of a cut line')
     argparser.add_argument('--arrow_size',type=float,default=10,\
                             help='Size of an arrow')
-    argparser.add_argument('--arrow_radius',type=float,default=110,\
+    argparser.add_argument('--arrow_radius',type=float,default=200,\
                             help='Arrow radius')
     argparser.add_argument('--arrow_thickness',type=float,default=2,\
                             help='Arrow line thickness')
     argparser.add_argument('--font',help='Font name')
     argparser.add_argument('--font_size',type=float,default=16,help='Font size')
+    argparser.add_argument('--rotation_angle',type=float,default=-90,\
+                            help='Angle of rotation')
 
 
     return argparser.parse_args()

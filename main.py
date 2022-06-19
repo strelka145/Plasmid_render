@@ -35,7 +35,7 @@ def drow():
 
 
 
-    svg_text+='</svg>'
+    svg_text+='</g></svg>'
 
     if args.output_svg_file!=None:
         svg_draw.save_SVG(args.output_svg_file,svg_text)

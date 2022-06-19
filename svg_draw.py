@@ -7,13 +7,12 @@ import json
 import subprocess
 
 def head_svg():
-    size=main.args.radius+(main.args.tag_height/2)+main.args.margin
-    svg_text='<svg width="'+str(size*2)+'" height="'+str(size*2)+'" viewBox="0, 0, '+str(size*2)+', '+str(size*2)+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="'+str(size)+'" cy="'+str(size)+'" r="'+str(main.args.radius)+'" fill="none" fill-opacity="0" stroke="black" stroke-width="'+str(main.args.plasmid_width)+'" id="circle1"/><!-- This image was created using plasmid render. -->'
+    size=main.args.picture_box/2
+    svg_text='<svg width="'+str(size*2)+'" height="'+str(size*2)+'" viewBox="0, 0, '+str(size*2)+', '+str(size*2)+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="rotate('+str(main.args.rotation_angle)+','+str(size)+','+str(size)+')"> <circle cx="'+str(size)+'" cy="'+str(size)+'" r="'+str(main.args.radius)+'" fill="none" fill-opacity="0" stroke="black" stroke-width="'+str(main.args.plasmid_width)+'" id="circle1"/><!-- This image was created using plasmid render. -->'
     return svg_text
 
 def annular_sector(angle,central_angle,color,label_text,id):
-    max_r=(main.args.radius+(main.args.tag_height/2))
-    center=max_r+main.args.margin
+    center=main.args.picture_box/2
 
     angle_add=angle+float(central_angle)
     dx=math.sin(math.radians(angle_add))-math.sin(math.radians(angle))
@@ -35,8 +34,7 @@ def annular_sector(angle,central_angle,color,label_text,id):
     return svg_code
 
 def point(angle,color,label_text,id):
-    max_r=(main.args.radius+(main.args.tag_height/2))
-    center=max_r+main.args.margin
+    center=main.args.picture_box/2
     angle_add=angle
     start_point_x=(main.args.radius+(main.args.cut_line_length/2))*math.sin(math.radians(angle))+center
     start_point_y=center-(main.args.radius+(main.args.cut_line_length/2))*math.cos(math.radians(angle))
@@ -57,8 +55,7 @@ def point(angle,color,label_text,id):
     return svg_code
 
 def arrow(angle,central_angle,color,label_text,id):
-    max_r=(main.args.radius+(main.args.tag_height/2))
-    center=max_r+main.args.margin
+    center=main.args.picture_box/2
     start_point_x=(main.args.arrow_radius)*math.sin(math.radians(angle))+center
     start_point_y=center-(main.args.arrow_radius)*math.cos(math.radians(angle))
     end_point_x=(main.args.arrow_radius)*math.sin(math.radians(angle+float(central_angle)))+center
