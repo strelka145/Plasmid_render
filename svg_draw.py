@@ -67,21 +67,24 @@ def arrow(angle,central_angle,color,label_text,id):
         f1='0'
     else:
         f1='1'
-
-    start_point_x=(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.sin(math.radians(angle))+center
-    start_point_y=center-(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.cos(math.radians(angle))
-    end_point_x=(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.sin(math.radians(angle+float(central_angle)))+center
-    end_point_y=center-(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.cos(math.radians(angle+float(central_angle)))
     if float(central_angle)>0:
         f2='1'
-        svg_code='<path d="M'+str(end_point_x)+','+str(end_point_y)+' l '+str(main.args.arrow_size*math.sin(135-(angle+float(central_angle))))+' '+str(-main.args.arrow_size*math.cos(135-(angle+float(central_angle))))+'" stroke-width="'+str(main.args.arrow_thickness)+'" stroke="'+color+'"/>'
+        svg_code='<path d="M'+str(end_point_x)+','+str(end_point_y)+' l '+str(-main.args.arrow_size*math.cos(135-(angle+float(central_angle))))+' '+str(main.args.arrow_size*math.sin(135-(angle+float(central_angle))))+'" stroke-width="'+str(main.args.arrow_thickness)+'" stroke="'+color+'"/>'
         #svg_code+='<path d="M'+str(end_point_x)+','+str(end_point_y)+' l '+str(-main.args.arrow_size*math.sin(225-(angle+float(central_angle))))+' '+str(main.args.arrow_size*math.cos(225-(angle+float(central_angle))))+'" stroke-width="'+str(main.args.arrow_thickness)+'" stroke="'+color+'"/>'
-        svg_code+='<path d="M'+str(start_point_x)+','+str(start_point_y)+' A '+str(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))+' '+str(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))+' '+str(angle-90)+' '+f1+' '+f2+' '+str(end_point_x)+','+str(end_point_y)+'" fill="none" id="path'+str(id)+ '"/>'
     else:
         f2='0'
-        svg_code='<path d="M'+str(end_point_x)+','+str(end_point_y)+' l '+str(main.args.arrow_size*math.sin(45-(angle+float(central_angle))))+' '+str(main.args.arrow_size*math.cos(45-(angle+float(central_angle))))+'" stroke-width="'+str(main.args.arrow_thickness)+'" stroke="'+color+'"/>'
-        svg_code+='<path d="M'+str(end_point_x)+','+str(end_point_y)+' A '+str(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))+' '+str(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))+' '+str(angle-90)+' '+f1+' '+'1'+' '+str(start_point_x)+','+str(start_point_y)+'" fill="none" id="path'+str(id)+ '"/>'
+        svg_code='<path d="M'+str(end_point_x)+','+str(end_point_y)+' l '+str(-main.args.arrow_size*math.cos(45-(angle+float(central_angle))))+' '+str(main.args.arrow_size*math.sin(45-(angle+float(central_angle))))+'" stroke-width="'+str(main.args.arrow_thickness)+'" stroke="'+color+'"/>'
+    start_point_x=(main.args.arrow_radius)*math.sin(math.radians(angle))+center
+    start_point_y=center-(main.args.arrow_radius)*math.cos(math.radians(angle))
+    end_point_x=(main.args.arrow_radius)*math.sin(math.radians(angle+float(central_angle)))+center
+    end_point_y=center-(main.args.arrow_radius)*math.cos(math.radians(angle+float(central_angle)))
     svg_code+='<path d="M'+str(start_point_x)+','+str(start_point_y)+' A '+str(main.args.arrow_radius)+' '+str(main.args.arrow_radius)+' '+str(angle-90)+' '+f1+' '+f2+' '+str(end_point_x)+','+str(end_point_y)+'" stroke-width="'+str(main.args.arrow_thickness)+'" fill="none" stroke="'+color+'" />'
+    start_point_x=(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.sin(math.radians((angle+(float(central_angle)/2))-80))+center
+    start_point_y=center-(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.cos(math.radians((angle+(float(central_angle)/2))-80))
+    end_point_x=(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.sin(math.radians((angle+(float(central_angle)/2))+80))+center
+    end_point_y=center-(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))*math.cos(math.radians((angle+(float(central_angle)/2))+80))
+    svg_code+='<path d="M'+str(start_point_x)+','+str(start_point_y)+' A '+str(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))+' '+str(main.args.arrow_radius+(main.args.arrow_size*math.sin(45)))+' '+str((angle+(float(central_angle)/2))-80-90)+' '+'0'+' '+'1'+' '+str(end_point_x)+','+str(end_point_y)+'" fill="none" id="path'+str(id)+ '"/>'
+    
     if main.args.font==None:
         font_style=""
     else:
