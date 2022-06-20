@@ -1,7 +1,8 @@
 from argparse import ArgumentParser
-import main
+from . import main
 import json
 import sys
+
 
 def get_option():
     argparser = ArgumentParser()
@@ -44,37 +45,60 @@ def option_json(json_path):
     for key in config_dic.keys():
         if key=="input_file":
             if not("--input_file" in sys.argv) and not("-i" in sys.argv):
-                main.args.input_file=config_dic[key]
+                arguments.input_file=config_dic[key]
         elif key=="input_json":
             if not("--input_json" in sys.argv):
-                main.args.input_file=config_dic[key]
+                arguments.input_file=config_dic[key]
         elif key=="output_svg_file":
             if not("--output_svg_file" in sys.argv) and not("-os" in sys.argv):
-                main.args.output_svg_file=config_dic[key]
+                arguments.output_svg_file=config_dic[key]
         elif key=="output_png_file":
             if not("--output_png_file" in sys.argv) and not("-op" in sys.argv):
-                main.args.output_png_file=config_dic[key]
+                arguments.output_png_file=config_dic[key]
         elif key=="config_path":
             if not("--config_path" in sys.argv) and not("-cp" in sys.argv):
-                main.args.config_path=config_dic[key]
+                arguments.config_path=config_dic[key]
         elif key=="margin":
             if not("--margin" in sys.argv):
-                main.args.margin=config_dic[key]
+                arguments.margin=float(config_dic[key])
         elif key=="radius":
             if not("--radius" in sys.argv):
-                main.args.radius=config_dic[key]
+                arguments.radius=float(config_dic[key])
         elif key=="plasmid_width":
             if not("--plasmid_width" in sys.argv) and not("-pw" in sys.argv):
-                main.args.plasmid_width=config_dic[key]
+                arguments.plasmid_width=float(config_dic[key])
         elif key=="tag_height":
             if not("--tag_height" in sys.argv) and not("-th" in sys.argv):
-                main.args.tag_height=config_dic[key]
+                arguments.tag_height=float(config_dic[key])
         elif key=="tag_line_width":
             if not("--tag_line_width" in sys.argv) and not("-tl" in sys.argv):
-                main.args.tag_line_width=config_dic[key]
+                arguments.tag_line_width=float(config_dic[key])
         elif key=="font":
             if not("--font" in sys.argv):
-                main.args.font=config_dic[key]
+                arguments.font=config_dic[key]
         elif key=="font_size":
             if not("--font_size" in sys.argv):
-                main.args.font_size=config_dic[key]
+                arguments.font_size=float(config_dic[key])
+
+
+
+class arguments(object):
+    """docstring forarguments."""
+    input_file=None
+    input_json=None
+    output_svg_file=None
+    output_png_file=None
+    config_path=None
+    picture_box=500.0
+    radius=180.0
+    plasmid_width=2.5
+    tag_height=20
+    tag_line_width=1.0
+    cut_line_length=20.0
+    cut_line_thickness=2.5
+    arrow_size=10.0
+    arrow_radius=200.0
+    arrow_thickness=2.0
+    font=None
+    font_size=16.0
+    rotation_angle=-90.0

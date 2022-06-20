@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
-Name: plasmid-render
-Version: 0.0.0
+Name: plasmidrender
+Version: 1.0.6
 Summary: CLI tool to illustrate plasmids with a structure described by json.
 Home-page: https://github.com/strelka145/Plasmid_render
 Author: strelka

@@ -1,2 +1,0 @@
-[console_scripts]
-plasmid_render = plasmid_render.main:draw

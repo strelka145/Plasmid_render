@@ -4,14 +4,17 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="plasmid_render",
-    version="0.0.0",
+    name="plasmidrender",
+    version="1.0.6",
     author="strelka",
     author_email="irohaprg@gmail.com",
     description="CLI tool to illustrate plasmids with a structure described by json.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/strelka145/Plasmid_render",
+    install_requires=[
+        "playwright",
+    ],
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -20,7 +23,7 @@ setuptools.setup(
     ],
     entry_points={
             'console_scripts':[
-                'plasmid_render = plasmid_render.main:draw',
+                'plasmidrender = plasmidrender.main:main',
             ],
         },
 )
