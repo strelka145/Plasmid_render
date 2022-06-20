@@ -5,6 +5,7 @@ import pathlib
 import os
 import json
 import subprocess
+import platform
 
 def head_svg():
     size=main.args.picture_box/2
@@ -88,7 +89,11 @@ def arrow(angle,central_angle,color,label_text,id,font_color="black"):
 
 
 def save_png(output_path,svg_code):
-    subprocess.run(["playwright" ,"install"], shell=True)
+    if platform.system()=="Windows":
+        shell=True
+    else:
+        shell=False
+    subprocess.run(["playwright" ,"install","firefox"], shell=shell)
     with open("./temp.svg", mode='w',encoding="utf_8") as f:
         f.write(svg_code)
     with sync_playwright() as p:
