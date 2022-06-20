@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+plasmid_render/__init__.py
+plasmid_render/main.py
+plasmid_render/option.py
+plasmid_render/svg_draw.py
+plasmid_render.egg-info/PKG-INFO
+plasmid_render.egg-info/SOURCES.txt
+plasmid_render.egg-info/dependency_links.txt
+plasmid_render.egg-info/entry_points.txt
+plasmid_render.egg-info/top_level.txt
