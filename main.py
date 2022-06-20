@@ -2,7 +2,7 @@ import json
 import svg_draw
 import option
 
-def drow():
+def draw():
     if args.input_file==None:
         gene_list=json.loads(args.input_json)
     else:
@@ -52,4 +52,4 @@ if args.config_path!=None:
     option.option_json(args.config_path)
 
 if __name__ == '__main__':
-    drow()
+    draw()

@@ -88,7 +88,7 @@ def arrow(angle,central_angle,color,label_text,id,font_color="black"):
 
 
 def save_png(output_path,svg_code):
-    subprocess.call(["playwright" ,"install"], shell=True)
+    subprocess.run(["playwright" ,"install"], shell=True)
     with open("./temp.svg", mode='w',encoding="utf_8") as f:
         f.write(svg_code)
     with sync_playwright() as p:
