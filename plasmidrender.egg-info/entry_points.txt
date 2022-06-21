@@ -1,2 +1,0 @@
-[console_scripts]
-plasmidrender = plasmidrender.main:main

@@ -3,7 +3,7 @@ from .option import *
 from .svg_draw import *
 
 __copyright__    = 'Copyright (C) 2022 strelka'
-__version__      = '1.0.6'
+__version__      = '1.0.7'
 __license__      = 'MIT License'
 __author__       = 'strelka'
 __author_email__ = 'irohaprg@gmail.com'

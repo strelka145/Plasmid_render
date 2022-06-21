@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="plasmidrender",
-    version="1.0.6",
+    version="1.0.7",
     author="strelka",
     author_email="irohaprg@gmail.com",
     description="CLI tool to illustrate plasmids with a structure described by json.",
