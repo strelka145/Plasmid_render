@@ -73,7 +73,9 @@ def main():
         svg_draw.save_png(option.arguments.output_png_file,svg_text)
 
 
-
+def main_option():
+    option.arguments = option.get_option()
+    main()
 
 
 if __name__ == '__main__':
