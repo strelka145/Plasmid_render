@@ -1,7 +1,6 @@
 import json
 from . import svg_draw
 from . import option
-import asyncio
 
 
 #input_file=None,input_json=None,output_svg_file=None,output_png_file=None,config_path=None,picture_box=500.0,radius=180.0,plasmid_width=2.5,tag_height=20,tag_line_width=1.0,cut_line_length=20.0,cut_line_thickness=2.5,arrow_size=10.0,arrow_radius=200.0,arrow_thickness=2.0,font=None,font_size=16.0,rotation_angle=-90.0
@@ -71,7 +70,7 @@ def main():
         svg_draw.save_SVG(option.arguments.output_svg_file,svg_text)
 
     if option.arguments.output_png_file!=None:
-        await svg_draw.save_png(option.arguments.output_png_file,svg_text)
+        svg_draw.save_png(option.arguments.output_png_file,svg_text)
 
 
 
