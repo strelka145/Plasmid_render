@@ -27,8 +27,6 @@ def draw(input_file=None,input_json=None,output_svg_file=None,output_png_file=No
 
 
 def main():
-    option.arguments = option.get_option()
-
     if option.arguments.config_path!=None:
         option.option_json(option.arguments.config_path)
     if option.arguments.input_file==None:
@@ -79,4 +77,5 @@ def main():
 
 
 if __name__ == '__main__':
+    option.arguments = option.get_option()
     main()
