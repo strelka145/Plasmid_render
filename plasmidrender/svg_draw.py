@@ -1,5 +1,6 @@
 import math
-from playwright.sync_api import sync_playwright
+import asyncio
+from playwright.async_api import async_playwright
 from . import option
 import pathlib
 import os
@@ -88,7 +89,7 @@ def arrow(angle,central_angle,color,label_text,id,font_color="black"):
     return svg_code
 
 
-def save_png(output_path,svg_code):
+async def save_png(output_path,svg_code):
     if platform.system()=="Windows":
         shell=True
     else:
@@ -96,13 +97,13 @@ def save_png(output_path,svg_code):
     subprocess.run(["playwright" ,"install","firefox"], shell=shell)
     with open("./temp.svg", mode='w',encoding="utf_8") as f:
         f.write(svg_code)
-    with sync_playwright() as p:
-        browser = p.firefox.launch()
-        p = pathlib.Path('./temp.svg')
-        page = browser.new_page()
-        page.goto('file:'+str(p.resolve()))
-        page.locator("svg").screenshot(path=output_path)
-        browser.close()
+    async with async_playwright() as p:
+        browser = await p.firefox.launch()
+        path_svg = pathlib.Path('./temp.svg')
+        page = await browser.new_page()
+        await page.goto('file:'+str(path_svg.resolve()))
+        await page.locator("svg").screenshot(path=output_path)
+        await browser.close()
 
 def save_SVG(output_path,svg_code):
     with open(output_path, mode='w',encoding="utf_8") as f:

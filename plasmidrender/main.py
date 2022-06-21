@@ -70,7 +70,7 @@ def main():
         svg_draw.save_SVG(option.arguments.output_svg_file,svg_text)
 
     if option.arguments.output_png_file!=None:
-        svg_draw.save_png(option.arguments.output_png_file,svg_text)
+        asyncio.run(svg_draw.save_png(option.arguments.output_png_file,svg_text))
 
 
 
