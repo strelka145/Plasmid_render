@@ -1,3 +1,5 @@
+![PyPI](https://img.shields.io/pypi/v/plasmidrender)
+
 # Plasmid_render
 CLI tool to illustrate plasmids with a structure described by json.
 
@@ -99,19 +101,5 @@ jsoncode=(
 plasmidrender.draw(input_file=jsoncode,output_png_file="output.png")
 ```
 
-### Output as png format
-
-```
-python3 main.py -i (Path of input json file) --output_png_file (Path of output png file)
-```
-
-
 ### Future
-- To be able to change the text style
-- Allow the hight of a annular sector to be changed
-- Allow adjustable line thickness
-
-### More future
-- Restriction Enzyme Indication
-- Show primer
-- Show translation direction
+- Enable png image export in Jupyter Notebook as well.
