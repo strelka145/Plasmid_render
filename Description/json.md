@@ -19,6 +19,9 @@ A necessary key. Specify the string to be displayed. If you do not want anything
 ### color ("type":"tag","color":"red")
 A necessary key. Specifies the color to be filled. Colors can be specified as in Web colors.
 
+### font_color ("type":"tag","font_color":"red")
+A optional key. Specify the color of the text. Colors can be specified as in Web colors.
+
 ## space
 
 ## arrow
